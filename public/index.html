@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch (e) {}
+  </script>
+  <meta name="theme-color" content="#0b57d0">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/icon.svg">
+  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+  <title>From Prompt to Working Product | Google Gemini Canvas</title>
+  <meta name="description" content="Slide presentasi interaktif 3D: Mengenal Google Gemini Canvas dan Vibe Coding untuk meningkatkan produktivitas harian.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/app.js" defer></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(() => {});
+      });
+    }
+  </script>
+</head>
+<body>
+  <a href="#slide-frame-16x9" class="skip-link visually-hidden">Langsung ke slide presentasi</a>
+  <div id="live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <main class="presentation-stage-shell" id="main-content">
+    <!-- BINGKAI SLIDE 16:9 KONSISTEN DI TENGAH LAYAR -->
+    <div class="slide-frame-16x9" id="slide-frame-16x9" tabindex="-1">
+      <div class="slide-canvas-inner" id="slide-canvas-inner">
+
+        <!-- Dekorasi Sudut & Watermark Brand Google Developer Groups di Dalam Slide -->
+        <div class="slide-top-bar" aria-hidden="true">
+          <div class="gdg-badge">
+            <svg width="36" height="20" viewBox="0 0 44 24" fill="none">
+              <path d="M13.6 3.2L4.2 12L13.6 20.8" stroke="#EA4335" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.6 20.8L18.4 16.2" stroke="#4285F4" stroke-width="4.4" stroke-linecap="round"/>
+              <path d="M30.4 3.2L39.8 12L30.4 20.8" stroke="#FBBC04" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M30.4 3.2L25.6 7.8" stroke="#34A853" stroke-width="4.4" stroke-linecap="round"/>
+            </svg>
+            <span class="gdg-badge-text">Google Developer Groups • Gemini Canvas Series</span>
+          </div>
+          <span class="slide-page-pill" id="slide-top-counter">SLIDE 01 / 10</span>
+        </div>
+
+        <!-- AREA KONTEN KIRI & VISUAL 3D KANAN DI DALAM SLIDE 16:9 -->
+        <div class="slide-body-grid">
+
+          <!-- KOLOM KIRI: ISI MATERI SLIDE YANG RINGKAS, JELAS & PROFESIONAL -->
+          <div class="slides-content-area" id="slides-viewport">
+
+            <!-- SLIDE 1: COVER -->
+            <section class="slide is-active" data-slide-index="0" aria-labelledby="s-title-0">
+              <div class="slide-kicker">Pengenalan Produk &amp; Produktivitas AI</div>
+              <h1 id="s-title-0" class="display-title">
+                From Prompt to Working Product
+              </h1>
+              <p class="display-subtitle">
+                Membangun Solusi Harian dengan <strong>Google Gemini Canvas</strong>. Mengubah ide sederhana menjadi aplikasi siap pakai cukup lewat obrolan.
+              </p>
+              <div class="fun-fact-banner" role="note" aria-label="Fakta menarik tentang slide presentasi ini">
+                <span class="fun-fact-badge">FUN FACT</span>
+                <p class="fun-fact-text">
+                  Slide presentasi interaktif 3D yang sedang kamu lihat ini juga dibuat menggunakan <strong>Google Gemini Canvas</strong>!
+                </p>
+              </div>
+              <div class="cover-pillars">
+                <div class="mini-pillar tilt-card">
+                  <span class="pillar-num">01</span>
+                  <strong>Mengenal Gemini Canvas</strong>
+                  <span>Ruang kerja visual di dalam Google Gemini</span>
+                </div>
+                <div class="mini-pillar tilt-card">
+                  <span class="pillar-num">02</span>
+                  <strong>Konsep Vibe Coding</strong>
+                  <span>Membuat produk tanpa harus menghafal koding</span>
+                </div>
+                <div class="mini-pillar tilt-card">
+                  <span class="pillar-num">03</span>
+                  <strong>Praktik Solusi Nyata</strong>
+                  <span>Merakit alat bantu kuliah dan pekerjaan harian</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- SLIDE 2: MASALAH SEHARI-HARI -->
+            <section class="slide" data-slide-index="1" aria-labelledby="s-title-1" hidden>
+              <div class="slide-kicker">Latar Belakang</div>
+              <h2 id="s-title-1" class="slide-title">
+                Sering Punya Ide Alat Bantu, Tapi Terhalang Koding?
+              </h2>
+              <p class="slide-lead">
+                Dalam kegiatan kuliah maupun pekerjaan, banyak hitungan dan jadwal yang kita ulang terus setiap minggu.
+              </p>
+              <div class="compare-cards-row">
+                <div class="compare-card is-muted tilt-card">
+                  <span class="card-tag">Cara Lama</span>
+                  <h3>Harus Belajar Koding Dulu</h3>
+                  <p>Butuh waktu berbulan-bulan mempelajari bahasa pemrograman hanya untuk membuat satu halaman kalkulator atau pencatat tugas sederhana.</p>
+                </div>
+                <div class="compare-card is-featured tilt-card">
+                  <span class="card-tag">Cara Baru</span>
+                  <h3>Cukup Ceritakan Masalahmu</h3>
+                  <p>Menulis instruksi dalam bahasa Indonesia sehari-hari, lalu membiarkan AI menyusun tampilan dan rumus hitungannya dalam hitungan menit.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- SLIDE 3: KENAPA PENTING DIPELAJARI -->
+            <section class="slide" data-slide-index="2" aria-labelledby="s-title-2" hidden>
+              <div class="slide-kicker">Manfaat Produktivitas</div>
+              <h2 id="s-title-2" class="slide-title">
+                Kenapa Kemampuan Ini Penting untuk Semua Orang?
+              </h2>
+              <p class="slide-lead">
+                Tujuannya bukan mengubah semua orang menjadi programmer, melainkan membuat pekerjaan harian kita selesai lebih cepat.
+              </p>
+              <div class="interactive-switch-row" role="tablist" aria-label="Pilih contoh manfaat">
+                <button type="button" role="tab" aria-selected="true" class="switch-pill is-active" data-benefit-tab="campus">
+                  Manfaat di Kampus
+                </button>
+                <button type="button" role="tab" aria-selected="false" class="switch-pill" data-benefit-tab="work">
+                  Manfaat di Pekerjaan
+                </button>
+              </div>
+              <div id="benefit-panel-campus" class="benefit-cards-grid">
+                <div class="point-card tilt-card">
+                  <strong>Hitung Target IPK</strong>
+                  <p>Simulasi nilai semester depan secara instan tanpa menghitung ulang di kertas.</p>
+                </div>
+                <div class="point-card tilt-card">
+                  <strong>Atur Uang Harian</strong>
+                  <p>Kalkulator batas aman uang saku harian dan patungan kas kelompok otomatis.</p>
+                </div>
+                <div class="point-card tilt-card">
+                  <strong>Bagi Tugas Kelompok</strong>
+                  <p>Menimbang porsi kerja tiap anggota tim agar selesai tepat waktu.</p>
+                </div>
+              </div>
+              <div id="benefit-panel-work" class="benefit-cards-grid" hidden>
+                <div class="point-card tilt-card">
+                  <strong>Prototipe Saat Rapat</strong>
+                  <p>Menunjukkan simulasi produk yang bisa langsung diklik rekan tim, bukan sekadar wacana teks.</p>
+                </div>
+                <div class="point-card tilt-card">
+                  <strong>Alat Bantu Kerja</strong>
+                  <p>Membuat kalkulator harga, jadwal piket, atau daftar periksa kerja sendiri dengan cepat.</p>
+                </div>
+                <div class="point-card tilt-card">
+                  <strong>Persiapan Karir &amp; CV</strong>
+                  <p>Alat bantu merapikan kalimat pencapaian resume dan pengatur waktu latihan wawancara.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- SLIDE 4: APA ITU VIBE CODING -->
+            <section class="slide" data-slide-index="3" aria-labelledby="s-title-3" hidden>
+              <div class="slide-kicker">Konsep Dasar</div>
+              <h2 id="s-title-3" class="slide-title">
+                Apa Itu "Vibe Coding" dalam Bahasa Sederhana?
+              </h2>
+              <p class="slide-lead">
+                Bayangkan kamu sedang bekerja bersama seorang desainer dan pembuat web pribadi. Tugasmu hanya mengarahkan idenya lewat obrolan.
+              </p>
+              <div class="step-cards-3">
+                <div class="step-card tilt-card">
+                  <span class="step-badge">Langkah 1</span>
+                  <h3>Fokus ke Masalah</h3>
+                  <p>Tentukan alat apa yang ingin dibuat dan siapa yang akan memakainya.</p>
+                </div>
+                <div class="step-card tilt-card">
+                  <span class="step-badge">Langkah 2</span>
+                  <h3>AI Merakit Teknis</h3>
+                  <p>Gemini menerjemahkan kalimatmu menjadi tombol, kolom input, dan rumus otomatis.</p>
+                </div>
+                <div class="step-card tilt-card">
+                  <span class="step-badge">Langkah 3</span>
+                  <h3>Revisi Lewat Chat</h3>
+                  <p>Kurang suka warnanya? Cukup balas di chat: "Ubah tombolnya jadi warna biru."</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- SLIDE 5: MENGENAL GOOGLE GEMINI & CANVAS -->
+            <section class="slide" data-slide-index="4" aria-labelledby="s-title-4" hidden>
+              <div class="slide-kicker">Mengenal Fitur Utama</div>
+              <h2 id="s-title-4" class="slide-title">
+                Google Gemini &amp; Fitur "Canvas"
+              </h2>
+              <p class="slide-lead">
+                Jika Gemini biasa hanya menjawab dengan teks, fitur <strong>Gemini Canvas</strong> membuka ruang kerja interaktif di separuh kanan layarmu.
+              </p>
+              <div class="layer-buttons-stack" role="group" aria-label="Pilih bagian layar Gemini Canvas">
+                <button type="button" class="layer-select-btn is-active" data-layer-pick="chat" aria-pressed="true">
+                  <span class="layer-dot">1</span>
+                  <div>
+                    <strong>Panel Obrolan (Sisi Kiri)</strong>
+                    <span>Tempat kamu mengetik instruksi dan meminta perbaikan menggunakan bahasa sehari-hari.</span>
+                  </div>
+                </button>
+                <button type="button" class="layer-select-btn" data-layer-pick="code" aria-pressed="false">
+                  <span class="layer-dot">2</span>
+                  <div>
+                    <strong>Tab Kode Otomatis (Di Balik Layar)</strong>
+                    <span>Tempat Gemini menuliskan kode aplikasi secara otomatis tanpa perlu kamu ketik manual.</span>
+                  </div>
+                </button>
+                <button type="button" class="layer-select-btn" data-layer-pick="preview" aria-pressed="false">
+                  <span class="layer-dot">3</span>
+                  <div>
+                    <strong>Panel Preview (Sisi Kanan)</strong>
+                    <span>Begitu selesai dibuat, aplikasimu langsung tampil hidup dan bisa langsung dipakai di layar.</span>
+                  </div>
+                </button>
+              </div>
+            </section>
+
+            <!-- SLIDE 6: KENAPA OUTPUTNYA FILE .HTML -->
+            <section class="slide" data-slide-index="5" aria-labelledby="s-title-5" hidden>
+              <div class="slide-kicker">Mengenal Hasil Akhir</div>
+              <h2 id="s-title-5" class="slide-title">
+                Kenapa Hasilnya Berupa Satu File <code>.html</code>?
+              </h2>
+              <p class="slide-lead">
+                Saat kamu membuat produk di Gemini Canvas, seluruh tampilan dan logikanya dibungkus rapi ke dalam satu file bernama <strong><code>.html</code></strong> (sama seperti slide presentasi interaktif ini!).
+              </p>
+              <div class="html-feature-list">
+                <div class="html-feature-item tilt-card">
+                  <strong>Langsung Jalan di Browser</strong>
+                  <p>Cukup klik dua kali file tersebut, dan aplikasimu langsung terbuka di Chrome, Safari, atau browser HP tanpa instalasi.</p>
+                </div>
+                <div class="html-feature-item tilt-card">
+                  <strong>Ringan &amp; Gampang Dibagikan</strong>
+                  <p>Satu file sudah mencakup desain, warna, dan rumus hitungan sehingga mudah dikirim ke teman atau disimpan di Google Drive.</p>
+                </div>
+              </div>
+              <div class="slide-action-strip">
+                <button type="button" id="download-demo-html-btn" class="action-btn-secondary">
+                  Unduh Contoh File .html Siap Pakai
+                </button>
+                <span id="download-status-text" class="status-inline" aria-live="polite"></span>
+              </div>
+            </section>
+
+            <!-- SLIDE 7: RUMUS 4 BAHAN PROMPT -->
+            <section class="slide" data-slide-index="6" aria-labelledby="s-title-6" hidden>
+              <div class="slide-kicker">Cara Meracik Prompt</div>
+              <h2 id="s-title-6" class="slide-title">
+                Rumus 4 Bahan agar Gemini Langsung Paham
+              </h2>
+              <p class="slide-lead">
+                Klik tiap bahan di bawah ini untuk melihat bagaimana kalimat sederhana dirangkai menjadi instruksi (prompt) yang jelas:
+              </p>
+              <div class="recipe-grid-4" role="group" aria-label="Empat bahan penyusun prompt">
+                <button type="button" class="recipe-card is-active" data-recipe-part="1" aria-pressed="true">
+                  <span class="recipe-num">Bahan 1</span>
+                  <strong>Tujuan Alat</strong>
+                  <span>Apa nama dan fungsi utamanya?</span>
+                </button>
+                <button type="button" class="recipe-card" data-recipe-part="2" aria-pressed="false">
+                  <span class="recipe-num">Bahan 2</span>
+                  <strong>Kotak Input</strong>
+                  <span>Data apa yang diisi pengguna?</span>
+                </button>
+                <button type="button" class="recipe-card" data-recipe-part="3" aria-pressed="false">
+                  <span class="recipe-num">Bahan 3</span>
+                  <strong>Cara Hitung</strong>
+                  <span>Hasil apa yang mau ditampilkan?</span>
+                </button>
+                <button type="button" class="recipe-card" data-recipe-part="4" aria-pressed="false">
+                  <span class="recipe-num">Bahan 4</span>
+                  <strong>Gaya Tampilan</strong>
+                  <span>Bersih, rapi, dalam 1 file HTML.</span>
+                </button>
+              </div>
+              <div class="prompt-preview-banner" id="recipe-example-box" aria-live="polite">
+                <span class="prompt-banner-label">Contoh Kalimat Bahan 1 (Tujuan Alat):</span>
+                <p id="recipe-example-text">"Buatkan aplikasi Kalkulator Target IPK Semester untuk membantu mahasiswa merencanakan nilai kuliah."</p>
+              </div>
+            </section>
+
+            <!-- SLIDE 8: CONTOH PROMPT KE PRODUK JADI (INTERACTIVE MINI DEMO) -->
+            <section class="slide" data-slide-index="7" aria-labelledby="s-title-7" hidden>
+              <div class="slide-kicker">Simulasi Langsung</div>
+              <h2 id="s-title-7" class="slide-title">
+                Lihat Bagaimana Prompt Berubah Jadi Aplikasi
+              </h2>
+              <div class="demo-Interactive-box">
+                <div class="demo-preset-bar">
+                  <label for="quick-demo-select" class="demo-select-label">Pilih Contoh Produk:</label>
+                  <select id="quick-demo-select" class="demo-select">
+                    <option value="gpa">Kalkulator Target IPK Semester</option>
+                    <option value="budget">Kalkulator Batas Aman Uang Harian</option>
+                    <option value="team">Pembagi Beban Tugas Kelompok</option>
+                  </select>
+                </div>
+                <div class="demo-split-cards">
+                  <div class="demo-prompt-side">
+                    <span class="side-label">Prompt yang Diketik di Gemini:</span>
+                    <p id="demo-prompt-display" class="mono-prompt-text"></p>
+                  </div>
+                  <div class="demo-app-side" id="demo-app-container" aria-live="polite">
+                    <!-- Diisi kalkulator interaktif ringkas oleh app.js -->
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SLIDE 9: TEKNIK REVISI BERTAHAP -->
+            <section class="slide" data-slide-index="8" aria-labelledby="s-title-8" hidden>
+              <div class="slide-kicker">Tips Praktis untuk Pemula</div>
+              <h2 id="s-title-8" class="slide-title">
+                Jangan Minta Sekaligus, Bangun Secara Bertahap
+              </h2>
+              <p class="slide-lead">
+                Rahasia agar aplikasi buatanmu berjalan mulus di Gemini Canvas adalah membaginya menjadi 3 obrolan singkat:
+              </p>
+              <div class="iter-pills-row" role="tablist" aria-label="Tahapan iterasi prompt">
+                <button type="button" role="tab" aria-selected="true" class="iter-pill is-active" data-iter-tab="1">
+                  Tahap 1: Pondasi Utama
+                </button>
+                <button type="button" role="tab" aria-selected="false" class="iter-pill" data-iter-tab="2">
+                  Tahap 2: Tambah Fitur
+                </button>
+                <button type="button" role="tab" aria-selected="false" class="iter-pill" data-iter-tab="3">
+                  Tahap 3: Rapikan Desain
+                </button>
+              </div>
+              <div class="iter-detail-card tilt-card" id="iter-detail-card" aria-live="polite">
+                <span class="iter-kicker" id="iter-kicker">Obrolan Pertama • Fokus Fungsi Dasar</span>
+                <h3 id="iter-heading">Pastikan 1 Rumus Utama Berjalan Benar Dulu</h3>
+                <p id="iter-quote">"Buatkan kalkulator batas aman pengeluaran harian dari sisa uang bulanan dibagi sisa hari bulan ini."</p>
+              </div>
+            </section>
+
+            <!-- SLIDE 10: CANVASCRAFT MINI CASE SPRINT -->
+            <section class="slide" data-slide-index="9" aria-labelledby="s-title-9" hidden>
+              <div class="slide-kicker">Saatnya Praktik • CanvasCraft Mini Case Sprint</div>
+              <h2 id="s-title-9" class="slide-title">
+                Pilih 1 dari 3 Tema &amp; Bangun Produk Pertamamu!
+              </h2>
+              <div class="sprint-themes-row">
+                <div class="sprint-theme-card tilt-card">
+                  <span class="sprint-tag">Tema 1 • Academic Utility</span>
+                  <h3>Academic &amp; Study</h3>
+                  <p>Perencana target IPK, kartu flashcard belajar, atau pelacak progres tugas akhir.</p>
+                </div>
+                <div class="sprint-theme-card tilt-card">
+                  <span class="sprint-tag">Tema 2 • Student Life-Hack</span>
+                  <h3>Daily &amp; Finance</h3>
+                  <p>Kalkulator batas aman uang harian, alat hitung split bill, atau perencana menu hemat.</p>
+                </div>
+                <div class="sprint-theme-card tilt-card">
+                  <span class="sprint-tag">Tema 3 • Productivity Tool</span>
+                  <h3>Collaboration &amp; Career</h3>
+                  <p>Pembagi bobot tugas tim, perapi kalimat resume/CV, atau timer latihan wawancara.</p>
+                </div>
+              </div>
+              <div class="sprint-journey-bar" aria-label="Alur pengerjaan 4 langkah">
+                <span class="journey-title">Alur Pengerjaan:</span>
+                <div class="journey-steps-list">
+                  <span class="journey-step-pill"><strong>1.</strong> Pilih Tema</span>
+                  <span class="journey-step-pill"><strong>2.</strong> Tulis Ide</span>
+                  <span class="journey-step-pill"><strong>3.</strong> Racik di Canvas</span>
+                  <span class="journey-step-pill"><strong>4.</strong> Demo 60-90 dtk</span>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- KOLOM KANAN: KOMPONEN VISUAL 3D DEKORATIF & INTERAKTIF -->
+          <aside class="slide-visual-3d" aria-label="Ilustrasi 3D Interaktif">
+            <div class="visual-3d-card">
+              <div class="visual-3d-top">
+                <span class="visual-3d-badge" id="stage-3d-scene-title">Visualisasi 3D • Gemini Canvas</span>
+              </div>
+              <div class="canvas-3d-holder">
+                <canvas id="canvas-3d" width="560" height="520" aria-label="Ilustrasi 3D interaktif yang memvisualisasikan konsep pada slide aktif"></canvas>
+              </div>
+              <p class="visual-3d-hint" id="stage-3d-caption">
+                Geser objek 3D dengan kursor untuk melihat dari berbagai sudut.
+              </p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- KONTROL NAVIGASI KIRI & KANAN TEPAT DI BAWAH SLIDE 16:9 -->
+    <footer class="deck-bottom-bar" aria-label="Navigasi slide presentasi">
+      <button type="button" id="prev-slide-btn" class="nav-pill-btn" aria-disabled="true">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        <span>Sebelumnya</span>
+      </button>
+
+      <div class="bottom-center-status">
+        <nav class="mini-dots" aria-label="Lompat ke nomor slide">
+          <button type="button" class="dot-btn is-active" data-slide-target="0" aria-label="Slide 1" aria-current="step"></button>
+          <button type="button" class="dot-btn" data-slide-target="1" aria-label="Slide 2"></button>
+          <button type="button" class="dot-btn" data-slide-target="2" aria-label="Slide 3"></button>
+          <button type="button" class="dot-btn" data-slide-target="3" aria-label="Slide 4"></button>
+          <button type="button" class="dot-btn" data-slide-target="4" aria-label="Slide 5"></button>
+          <button type="button" class="dot-btn" data-slide-target="5" aria-label="Slide 6"></button>
+          <button type="button" class="dot-btn" data-slide-target="6" aria-label="Slide 7"></button>
+          <button type="button" class="dot-btn" data-slide-target="7" aria-label="Slide 8"></button>
+          <button type="button" class="dot-btn" data-slide-target="8" aria-label="Slide 9"></button>
+          <button type="button" class="dot-btn" data-slide-target="9" aria-label="Slide 10"></button>
+        </nav>
+        <span class="slide-num-text"><strong id="footer-current-num">01</strong> / 10</span>
+      </div>
+
+      <div class="bottom-right-group">
+        <button type="button" id="pause-3d-btn" class="icon-util-btn" aria-label="Jeda animasi 3D">
+          <span id="pause-3d-label">Jeda 3D</span>
+        </button>
+
+        <button type="button" id="theme-toggle-btn" class="icon-util-btn">
+          <span class="theme-option-dark">Tema Gelap</span>
+          <span class="theme-option-light">Tema Terang</span>
+        </button>
+
+        <button type="button" id="next-slide-btn" class="nav-pill-btn nav-pill-primary">
+          <span>Selanjutnya</span>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

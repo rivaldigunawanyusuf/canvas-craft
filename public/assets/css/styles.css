@@ -1,0 +1,1362 @@
+/* ==========================================================================
+   Google Developer Groups • Professional 16:9 Keynote Presentation Deck
+   Follows Google Material Design 3 tokens, WCAG AA 2.2, and Antislop rules.
+   ========================================================================== */
+
+:root {
+  /* Light & Dark Palette Tokens (WCAG AA verified via contrast-check.py) */
+  --bg-backdrop-light: #eef3fc;
+  --bg-backdrop-dark: #0d0e11;
+
+  --bg-slide-light: #ffffff;
+  --bg-slide-dark: #131314;
+
+  --bg-surface-light: #f8fafd;
+  --bg-surface-dark: #1e1f20;
+
+  --bg-surface-alt-light: #edf2fa;
+  --bg-surface-alt-dark: #282a2c;
+
+  --text-primary-light: #1f1f1f;
+  --text-primary-dark: #e3e3e3;
+
+  --text-secondary-light: #444746;
+  --text-secondary-dark: #c4c7c5;
+
+  /* Core Color 1: Google Material 3 Primary Blue */
+  --color-primary-light: #0b57d0;
+  --color-primary-dark: #a8c7fa;
+
+  --color-on-primary-light: #ffffff;
+  --color-on-primary-dark: #062e6f;
+
+  --color-primary-tint-light: #e8f0fe;
+  --color-primary-tint-dark: #0842a0;
+
+  --color-on-primary-tint-light: #0b57d0;
+  --color-on-primary-tint-dark: #d3e3fd;
+
+  /* Core Color 2: Google Material 3 Functional Green */
+  --color-success-light: #137333;
+  --color-success-dark: #81c995;
+
+  --color-success-tint-light: #e6f4ea;
+  --color-success-tint-dark: #0d5223;
+
+  /* Deliberate Accent: Google Amber */
+  --color-accent-light: #754200;
+  --color-accent-dark: #fdd663;
+
+  --color-accent-tint-light: #fef7e0;
+  --color-accent-tint-dark: #422c00;
+
+  /* Borders (3:1+ contrast for interactive boundaries) */
+  --border-strong-light: #747775;
+  --border-strong-dark: #8e918f;
+
+  --border-subtle-light: #c4c7c5;
+  --border-subtle-dark: #444746;
+
+  /* Fallback Assignments */
+  --bg-backdrop: var(--bg-backdrop-light);
+  --bg-page: var(--bg-slide-light);
+  --bg-surface: var(--bg-surface-light);
+  --bg-surface-alt: var(--bg-surface-alt-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --color-primary: var(--color-primary-light);
+  --color-on-primary: var(--color-on-primary-light);
+  --color-primary-tint: var(--color-primary-tint-light);
+  --color-on-primary-tint: var(--color-on-primary-tint-light);
+  --color-success: var(--color-success-light);
+  --color-success-tint: var(--color-success-tint-light);
+  --color-accent: var(--color-accent-light);
+  --color-accent-tint: var(--color-accent-tint-light);
+  --border-strong: var(--border-strong-light);
+  --border-subtle: var(--border-subtle-light);
+
+  /* Radii Hierarchy (R-11) */
+  --radius-slide: 20px;
+  --radius-card: 14px;
+  --radius-control: 8px;
+
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  color-scheme: light dark;
+  accent-color: var(--color-primary);
+
+  @media (prefers-color-scheme: dark) {
+    --bg-backdrop: var(--bg-backdrop-dark);
+    --bg-page: var(--bg-slide-dark);
+    --bg-surface: var(--bg-surface-dark);
+    --bg-surface-alt: var(--bg-surface-alt-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --color-primary: var(--color-primary-dark);
+    --color-on-primary: var(--color-on-primary-dark);
+    --color-primary-tint: var(--color-primary-tint-dark);
+    --color-on-primary-tint: var(--color-on-primary-tint-dark);
+    --color-success: var(--color-success-dark);
+    --color-success-tint: var(--color-success-tint-dark);
+    --color-accent: var(--color-accent-dark);
+    --color-accent-tint: var(--color-accent-tint-dark);
+    --border-strong: var(--border-strong-dark);
+    --border-subtle: var(--border-subtle-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --bg-backdrop: var(--bg-backdrop-dark);
+    --bg-page: var(--bg-slide-dark);
+    --bg-surface: var(--bg-surface-dark);
+    --bg-surface-alt: var(--bg-surface-alt-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --color-primary: var(--color-primary-dark);
+    --color-on-primary: var(--color-on-primary-dark);
+    --color-primary-tint: var(--color-primary-tint-dark);
+    --color-on-primary-tint: var(--color-on-primary-tint-dark);
+    --color-success: var(--color-success-dark);
+    --color-success-tint: var(--color-success-tint-dark);
+    --color-accent: var(--color-accent-dark);
+    --color-accent-tint: var(--color-accent-tint-dark);
+    --border-strong: var(--border-strong-dark);
+    --border-subtle: var(--border-subtle-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --bg-backdrop: var(--bg-backdrop-light);
+    --bg-page: var(--bg-slide-light);
+    --bg-surface: var(--bg-surface-light);
+    --bg-surface-alt: var(--bg-surface-alt-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --color-primary: var(--color-primary-light);
+    --color-on-primary: var(--color-on-primary-light);
+    --color-primary-tint: var(--color-primary-tint-light);
+    --color-on-primary-tint: var(--color-on-primary-tint-light);
+    --color-success: var(--color-success-light);
+    --color-success-tint: var(--color-success-tint-light);
+    --color-accent: var(--color-accent-light);
+    --color-accent-tint: var(--color-accent-tint-light);
+    --border-strong: var(--border-strong-light);
+    --border-subtle: var(--border-subtle-light);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --bg-backdrop: light-dark(var(--bg-backdrop-light), var(--bg-backdrop-dark));
+    --bg-page: light-dark(var(--bg-slide-light), var(--bg-slide-dark));
+    --bg-surface: light-dark(var(--bg-surface-light), var(--bg-surface-dark));
+    --bg-surface-alt: light-dark(var(--bg-surface-alt-light), var(--bg-surface-alt-dark));
+    --text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
+    --text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
+    --color-primary: light-dark(var(--color-primary-light), var(--color-primary-dark));
+    --color-on-primary: light-dark(var(--color-on-primary-light), var(--color-on-primary-dark));
+    --color-primary-tint: light-dark(var(--color-primary-tint-light), var(--color-primary-tint-dark));
+    --color-on-primary-tint: light-dark(var(--color-on-primary-tint-light), var(--color-on-primary-tint-dark));
+    --color-success: light-dark(var(--color-success-light), var(--color-success-dark));
+    --color-success-tint: light-dark(var(--color-success-tint-light), var(--color-success-tint-dark));
+    --color-accent: light-dark(var(--color-accent-light), var(--color-accent-dark));
+    --color-accent-tint: light-dark(var(--color-accent-tint-light), var(--color-accent-tint-dark));
+    --border-strong: light-dark(var(--border-strong-light), var(--border-strong-dark));
+    --border-subtle: light-dark(var(--border-subtle-light), var(--border-subtle-dark));
+  }
+}
+
+/* Theme Toggle State Branching */
+.theme-option-light {
+  display: none;
+}
+.theme-option-dark {
+  display: inline;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])) .theme-option-dark {
+    display: none;
+  }
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])) .theme-option-light {
+    display: inline;
+  }
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-option-dark {
+  display: none;
+}
+:root:has(> head > meta[name="color-scheme"][content="dark"]) .theme-option-light {
+  display: inline;
+}
+
+/* ==========================================================================
+   Reset & Base Layer Affordances (R-39, R-32)
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: var(--bg-backdrop);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Base-layer pointer cursor for all enabled interactive controls (R-39) */
+a[href],
+button:not(:disabled),
+summary,
+select:not(:disabled),
+label[for],
+input:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+[role="tab"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+button:disabled,
+select:disabled,
+input:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+:where(a:any-link, button, input, select, textarea, summary, [tabindex="0"]):focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+.skip-link:focus-visible {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 10px 16px;
+  border-radius: var(--radius-control);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Directional Navigation View Transitions (modern-web-guidance)
+   ========================================================================== */
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-to-right {
+  to {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+}
+
+::view-transition-group(root) {
+  animation: 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html:active-view-transition-type(forward)::view-transition-old(root) {
+  animation-name: slide-to-left;
+}
+
+html:active-view-transition-type(forward)::view-transition-new(root) {
+  animation-name: slide-from-right;
+}
+
+html:active-view-transition-type(backward)::view-transition-old(root) {
+  animation-name: slide-to-right;
+}
+
+html:active-view-transition-type(backward)::view-transition-new(root) {
+  animation-name: slide-from-left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root) {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Centered 16:9 Presentation Stage & Fixed Logical 1600x900 Canvas
+   ========================================================================== */
+
+.presentation-stage-shell {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 24px;
+}
+
+.slide-frame-16x9 {
+  position: relative;
+  width: var(--frame-w, min(100%, 1360px));
+  height: var(--frame-h, auto);
+  aspect-ratio: 16 / 9;
+  background-color: var(--bg-page);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-slide);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+  flex-shrink: 0;
+}
+
+/* Subtle Google 4-color top accent strip inside the 16:9 slide */
+.slide-frame-16x9::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  z-index: 10;
+  background: linear-gradient(
+    90deg,
+    #4285f4 0% 25%,
+    #ea4335 25% 50%,
+    #fbbc04 50% 75%,
+    #34a853 75% 100%
+  );
+}
+
+.slide-canvas-inner {
+  width: 1600px;
+  height: 900px;
+  transform: scale(var(--slide-scale, 0.85));
+  transform-origin: top left;
+  padding: 44px 56px 40px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--bg-page);
+}
+
+/* Top Watermark inside Slide */
+.slide-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.gdg-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gdg-badge-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.slide-page-pill {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-on-primary-tint);
+  background-color: var(--color-primary-tint);
+  padding: 6px 16px;
+  border-radius: var(--radius-control);
+}
+
+/* Main 2-Column Slide Grid inside 1600x900 */
+.slide-body-grid {
+  flex: 1;
+  min-height: 0;
+  padding-top: 28px;
+  display: grid;
+  grid-template-columns: 1.28fr 0.92fr;
+  gap: 44px;
+  align-items: stretch;
+}
+
+.slides-content-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+}
+
+.slide[hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Keynote Slide Typography (Big, Scannable, Effortless to Read)
+   ========================================================================== */
+
+.slide-kicker {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-primary-tint);
+  padding: 6px 14px;
+  border-radius: var(--radius-control);
+  white-space: nowrap;
+}
+
+.display-title {
+  margin: 0;
+  font-size: 3.15rem;
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.display-subtitle {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.48;
+  color: var(--text-secondary);
+  max-width: 56ch;
+}
+
+/* Fun Fact Callout on Slide 1 */
+.fun-fact-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--color-primary-tint);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-card);
+  padding: 12px 18px;
+}
+
+.fun-fact-badge {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fun-fact-text {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.42;
+  color: var(--color-on-primary-tint);
+}
+
+.slide-title {
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.16;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.slide-lead {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
+
+/* 3D Perspective Tilt Effect on Slide Cards */
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.18s ease-out, border-color 0.18s ease;
+}
+
+.tilt-card:hover {
+  border-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Slide Components (Spacious & Visual)
+   ========================================================================== */
+
+/* Slide 1: 3 Pillars */
+.cover-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 2px;
+}
+
+.mini-pillar {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.mini-pillar strong {
+  font-size: 1.08rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.mini-pillar span:last-child {
+  font-size: 0.94rem;
+  line-height: 1.42;
+  color: var(--text-secondary);
+}
+
+/* Slide 2: Compare Cards */
+.compare-cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 6px;
+}
+
+.compare-card {
+  border-radius: var(--radius-card);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.compare-card.is-muted {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.compare-card.is-featured {
+  background-color: var(--color-primary-tint);
+  border: 2px solid var(--color-primary);
+}
+
+.card-tag {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.compare-card h3 {
+  margin: 0;
+  font-size: 1.38rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.compare-card p {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.compare-card.is-featured h3,
+.compare-card.is-featured p {
+  color: var(--color-on-primary-tint);
+}
+
+/* Slide 3: Benefit Switcher & 3 Cards */
+.interactive-switch-row {
+  display: flex;
+  gap: 12px;
+}
+
+.switch-pill {
+  min-block-size: 48px;
+  padding: 10px 24px;
+  border-radius: var(--radius-control);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.switch-pill.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+.benefit-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.benefit-cards-grid[hidden] {
+  display: none !important;
+}
+
+.point-card {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.point-card strong {
+  font-size: 1.14rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.point-card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.46;
+  color: var(--text-secondary);
+}
+
+/* Slide 4: 3 Steps of Vibe Coding */
+.step-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.step-card {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-primary-tint);
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.step-card h3 {
+  margin: 0;
+  font-size: 1.22rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.step-card p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.48;
+  color: var(--text-secondary);
+}
+
+/* Slide 5: 3 Layer Buttons of Gemini Canvas */
+.layer-buttons-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.layer-select-btn {
+  width: 100%;
+  text-align: left;
+  padding: 18px 22px;
+  border-radius: var(--radius-card);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.layer-select-btn.is-active {
+  background-color: var(--color-primary-tint);
+  color: var(--color-on-primary-tint);
+  border-color: var(--color-primary);
+}
+
+.layer-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.layer-select-btn strong {
+  display: block;
+  font-size: 1.18rem;
+  margin-bottom: 4px;
+}
+
+.layer-select-btn span:last-child {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.layer-select-btn.is-active span:last-child {
+  color: var(--color-on-primary-tint);
+}
+
+/* Slide 6: .html Features & Download Button */
+.html-feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.html-feature-item {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.html-feature-item strong {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.html-feature-item p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.slide-action-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.action-btn-secondary {
+  min-block-size: 48px;
+  padding: 12px 22px;
+  border-radius: var(--radius-control);
+  border: 1.5px solid var(--color-primary);
+  background-color: var(--color-primary-tint);
+  color: var(--color-on-primary-tint);
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.status-inline {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+/* Slide 7: 4 Recipe Cards */
+.recipe-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.recipe-card {
+  text-align: left;
+  padding: 18px 16px;
+  border-radius: var(--radius-card);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recipe-card.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+.recipe-num {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.recipe-card strong {
+  font-size: 1.15rem;
+}
+
+.recipe-card span:last-child {
+  font-size: 0.92rem;
+  opacity: 0.88;
+}
+
+.prompt-preview-banner {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-card);
+  padding: 20px 24px;
+}
+
+.prompt-banner-label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.prompt-preview-banner p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 1.08rem;
+  color: var(--text-primary);
+}
+
+/* Slide 8: Clean Interactive Mini Demo */
+.demo-Interactive-box {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demo-preset-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.demo-select-label {
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.demo-select {
+  min-block-size: 44px;
+  padding: 8px 16px;
+  border-radius: var(--radius-control);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.demo-split-cards {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 18px;
+}
+
+.demo-prompt-side,
+.demo-app-side {
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 18px;
+}
+
+.side-label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.mono-prompt-text {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.mini-calc-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.mini-calc-row label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.mini-calc-row input {
+  width: 100%;
+  min-block-size: 40px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+
+.mini-calc-result {
+  background-color: var(--color-success-tint);
+  color: var(--color-success);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Slide 9: Iterative Steps */
+.iter-pills-row {
+  display: flex;
+  gap: 12px;
+}
+
+.iter-pill {
+  min-block-size: 48px;
+  padding: 10px 22px;
+  border-radius: var(--radius-control);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.iter-pill.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+.iter-detail-card {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.iter-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.iter-detail-card h3 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.iter-detail-card p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-page);
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Slide 10: CanvasCraft Sprint Themes */
+.sprint-themes-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sprint-theme-card {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Deliberate Amber Award Tag */
+.sprint-tag {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background-color: var(--color-accent-tint);
+  color: var(--color-accent);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.sprint-theme-card h3 {
+  margin: 0;
+  font-size: 1.32rem;
+}
+
+.sprint-theme-card p {
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+}
+
+.sprint-journey-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--color-primary-tint);
+  color: var(--color-on-primary-tint);
+  padding: 14px 20px;
+  border-radius: var(--radius-card);
+}
+
+.journey-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.journey-steps-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.journey-step-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 0;
+  justify-content: center;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-control);
+  padding: 8px 10px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.journey-step-pill strong {
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   Right Column inside Slide: 3D Decorative & Interactive Stage
+   ========================================================================== */
+
+.slide-visual-3d {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.visual-3d-card {
+  flex: 1;
+  min-height: 0;
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.visual-3d-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.visual-3d-badge {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.canvas-3d-holder {
+  flex: 1;
+  min-height: 0;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+#canvas-3d {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+#canvas-3d:active {
+  cursor: grabbing;
+}
+
+.visual-3d-hint {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Bottom Navigation Bar Directly Underneath the 16:9 Slide Frame
+   ========================================================================== */
+
+.deck-bottom-bar {
+  width: var(--frame-w, min(100%, 1360px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 8px 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.nav-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  padding: 8px 18px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.nav-pill-btn:hover:not([aria-disabled="true"]) {
+  background-color: var(--color-primary-tint);
+  color: var(--color-on-primary-tint);
+  border-color: var(--color-primary);
+}
+
+.nav-pill-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+
+.nav-pill-primary:hover:not([aria-disabled="true"]) {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  filter: brightness(1.08);
+}
+
+.bottom-center-status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mini-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot-btn {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-btn::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--border-strong);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.dot-btn.is-active::after {
+  background-color: var(--color-primary);
+  transform: scale(1.35);
+}
+
+.slide-num-text {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.bottom-right-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-util-btn {
+  min-block-size: 44px;
+  padding: 8px 12px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.icon-util-btn:hover {
+  border-color: var(--color-primary);
+}
+
+/* Mobile & Tablet Bottom Bar Adaptation while Keeping 16:9 Slide Centered */
+@media (max-width: 768px) {
+  .presentation-stage-shell {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+
+  .mini-dots,
+  .icon-util-btn {
+    display: none;
+  }
+
+  .deck-bottom-bar {
+    padding: 6px 10px;
+  }
+
+  .nav-pill-btn {
+    padding: 8px 14px;
+    font-size: 0.84rem;
+  }
+}

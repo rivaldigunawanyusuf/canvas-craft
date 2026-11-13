@@ -1,0 +1,11 @@
+{
+  "name": "canvas-craft",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive 3D presentation deck: From Prompt to Working Product with Gemini Canvas",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 -d public",
+    "start": "python3 -m http.server 4173 -d public"
+  }
+}
+
