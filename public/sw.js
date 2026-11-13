@@ -1,4 +1,4 @@
-const VERSION = "v2";
+const VERSION = "v3";
 const CORE_CACHE = `canvas-craft-core-${VERSION}`;
 const FONT_CACHE = `canvas-craft-fonts-${VERSION}`;
 

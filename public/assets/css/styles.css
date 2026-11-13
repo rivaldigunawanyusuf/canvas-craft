@@ -1339,11 +1339,23 @@ html:active-view-transition-type(backward)::view-transition-new(root) {
   border-color: var(--color-primary);
 }
 
-/* Mobile & Tablet Bottom Bar Adaptation while Keeping 16:9 Slide Centered */
-@media (max-width: 768px) {
+.deck-bottom-bar {
+  flex-wrap: nowrap;
+}
+
+.slide-num-text {
+  white-space: nowrap;
+}
+
+.nav-pill-btn {
+  white-space: nowrap;
+}
+
+/* Phones (portrait) and short landscape screens: compact single-row controls */
+@media (max-width: 768px), (max-height: 560px) {
   .presentation-stage-shell {
-    padding: 10px 8px;
-    gap: 10px;
+    padding: 8px;
+    gap: 8px;
   }
 
   .mini-dots,
@@ -1352,11 +1364,25 @@ html:active-view-transition-type(backward)::view-transition-new(root) {
   }
 
   .deck-bottom-bar {
-    padding: 6px 10px;
+    padding: 4px 8px;
+    gap: 8px;
+  }
+
+  .bottom-center-status {
+    flex: 1;
+    justify-content: center;
   }
 
   .nav-pill-btn {
-    padding: 8px 14px;
+    min-block-size: 40px;
+    padding: 6px 14px;
     font-size: 0.84rem;
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .presentation-stage-shell {
+    padding: 6px 8px;
+    gap: 6px;
   }
 }

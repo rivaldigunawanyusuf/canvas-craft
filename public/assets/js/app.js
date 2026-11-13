@@ -783,10 +783,13 @@
     if (mainStageShell) {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const isMobile = vw <= 768;
-      const padX = isMobile ? 16 : 48;
-      const padY = isMobile ? 20 : 32;
-      const bottomBarAndGap = isMobile ? 64 : 74;
+      const isCompact = vw <= 768 || vh <= 560;
+      const bar = document.querySelector(".deck-bottom-bar");
+      const barH = bar ? bar.offsetHeight : 56;
+      const gap = isCompact ? 8 : 14;
+      const padX = isCompact ? 16 : 48;
+      const padY = isCompact ? 16 : 32;
+      const bottomBarAndGap = barH + gap;
 
       const availW = Math.max(260, vw - padX);
       const availH = Math.max(160, vh - padY - bottomBarAndGap);
