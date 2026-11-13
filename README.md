@@ -57,7 +57,7 @@ npx vercel --prod
 
 ## PWA
 
-Setelah dibuka sekali saat online, aplikasi bisa dipasang dan berjalan offline lewat service worker (`public/sw.js`). Naikkan `VERSION` di file itu setiap kali ada perubahan kode.
+Setelah dibuka sekali saat online, aplikasi bisa dipasang dan berjalan offline lewat service worker (`public/sw.js`). Konten selalu diambil dari jaringan lebih dulu (network-first) dan baru memakai cache saat offline, jadi update otomatis tanpa perlu menghapus data situs.
 
 ## Struktur
 

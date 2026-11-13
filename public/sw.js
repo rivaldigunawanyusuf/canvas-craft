@@ -1,4 +1,4 @@
-const VERSION = "v3";
+const VERSION = "v4";
 const CORE_CACHE = `canvas-craft-core-${VERSION}`;
 const FONT_CACHE = `canvas-craft-fonts-${VERSION}`;
 
@@ -58,20 +58,25 @@ self.addEventListener("fetch", (event) => {
 
   if (url.origin !== self.location.origin) return;
 
-  // Same-origin: cache first, refresh in the background for the next visit.
+  // Same-origin: network first so every online visit gets the latest build.
+  // Falls back to the cache when offline or the network is too slow.
   event.respondWith(
-    caches.match(req, { ignoreSearch: true }).then((hit) => {
-      const network = fetch(req)
-        .then((res) => {
-          if (res.ok) {
-            const copy = res.clone();
-            caches.open(CORE_CACHE).then((c) => c.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => hit);
-      if (hit) return hit;
-      return network.then((res) => res || caches.match("/index.html"));
-    })
+    fetchFresh(req).catch(() =>
+      caches
+        .match(req, { ignoreSearch: true })
+        .then((hit) => hit || caches.match("/index.html"))
+    )
   );
 });
+
+function fetchFresh(req) {
+  const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error("timeout")), 4000));
+  const network = fetch(req, { cache: "no-cache" }).then((res) => {
+    if (res.ok) {
+      const copy = res.clone();
+      caches.open(CORE_CACHE).then((c) => c.put(req, copy));
+    }
+    return res;
+  });
+  return Promise.race([network, timeout]);
+}
