@@ -89,7 +89,7 @@
       title: "Pilih 1 dari 3 Tema & Bangun Produk Pertamamu!",
       sceneTitle: "Visualisasi 3D • 3 Tema CanvasCraft Sprint",
       sceneCaption:
-        "Tiga pilar utama tantangan praktik: Academic & Study, Daily & Finance, serta Collaboration & Career.",
+        "Tiga pilar utama tantangan praktik: Academic & Study, Daily & Finance, serta Collab & Career.",
     },
   ];
 
